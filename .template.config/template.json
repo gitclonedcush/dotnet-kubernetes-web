@@ -1,0 +1,12 @@
+{
+    "author" : "https://github.com/cushind",
+    "classifications" : ["Web/ASP.NET"],
+    "name" : "ASP.NET Core Kubernetes App",
+    "identity" : "KubernetesApp",
+    "shortName" : "k8sapp",
+    "tags" : {
+        "language" : "C#"
+    },
+    "sourceName" : "KubernetesApp",
+    "preferNameDirectory" : "true"
+}

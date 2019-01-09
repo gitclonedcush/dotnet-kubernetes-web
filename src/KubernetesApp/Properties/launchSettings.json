@@ -1,8 +1,10 @@
 ﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "dotnet_kubernetes_web": {
+    "KubernetesApp": {
       "commandName": "Project",
       "launchBrowser": false,
+      "launchUrl": "api/values",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
