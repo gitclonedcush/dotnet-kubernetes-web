@@ -1,0 +1,51 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: kubernetesapp-deployment
+  namespace: test 
+  labels:
+    app: KubernetesApp 
+spec:
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 2
+  selector:
+    matchLabels:
+      app: KubernetesApp
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+      labels:
+        app: KubernetesApp
+    spec:
+      containers:
+      - name: #container name 
+        image: #image 
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: 500m
+            memory: 250Mi
+          requests:
+            cpu: 250m
+            memory: 125Mi
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        ports:
+        - containerPort: 80
+        env:
+        - name: MY_ENV_1
+          value: value1
+        - name: MY_ENV_2
+          valueFrom:
+            secretKeyRef:
+              name: kubernetesapp-secret
+              key: secret1 
