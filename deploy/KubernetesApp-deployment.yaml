@@ -1,7 +1,7 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: KubernetesApp-deployment
+  name: kubernetesapp-deployment
   namespace: test 
   labels:
     app: KubernetesApp 
@@ -21,12 +21,12 @@ spec:
         app: KubernetesApp
     spec:
       containers:
-      - name: KubernetesApp
-        image: hello-world:latest 
+      - name: #container name 
+        image: #image 
         imagePullPolicy: IfNotPresent
         resources:
           limits:
-            cpu: 5000m
+            cpu: 500m
             memory: 250Mi
           requests:
             cpu: 250m
@@ -47,5 +47,5 @@ spec:
         - name: MY_ENV_2
           valueFrom:
             secretKeyRef:
-              name: KubernetesApp-secret
+              name: kubernetesapp-secret
               key: secret1 

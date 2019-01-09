@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     prometheus.io/scrape: "true"
-  name: KubernetesApp-svc
+  name: kubernetesapp-svc
   namespace: test
   labels:
     app: KubernetesApp

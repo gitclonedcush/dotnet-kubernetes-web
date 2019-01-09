@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: KubernetesApp-configmap
+  name: kubernetesapp-configmap
   namespace: test
   labels:
     app: KubernetesApp
