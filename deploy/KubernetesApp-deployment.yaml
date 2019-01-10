@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: kubernetesapp 
-        image: kubernetesapp:latest
+        image: kubernetesapp:latest # modify to correct image name and tag
         imagePullPolicy: IfNotPresent
         resources:
           limits:
