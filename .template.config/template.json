@@ -16,8 +16,10 @@
               "exclude": [ 
                   ".vscode/**",
                   ".git/**",
+                  "_rels/**",
                   ".gitignore",
-                  "dotnet-kubernetes-web.nuspec"
+                  "*.nuspec",
+                  "[Content_Types].xml"
                 ]
             }
           ]
