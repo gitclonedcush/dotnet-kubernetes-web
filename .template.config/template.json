@@ -8,5 +8,19 @@
         "language" : "C#"
     },
     "sourceName" : "KubernetesApp",
-    "preferNameDirectory" : "true"
+    "preferNameDirectory" : "true",
+    "sources": [
+        {
+          "modifiers": [
+            {
+              "exclude": [ 
+                  ".vscode/**",
+                  ".git/**",
+                  ".gitignore",
+                  "dotnet-kubernetes-web.nuspec"
+                ]
+            }
+          ]
+        }
+    ]
 }
