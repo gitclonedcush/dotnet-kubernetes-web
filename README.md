@@ -13,5 +13,7 @@ dotnet-kubernetes-web is a simple `dotnet new` template to automate the process 
 
 ## Installation
 
+* Run `dotnet new -i AspNetCore.Kubernetes.Template`
+
 ## Usage
 * To create a new asp.net core with kubernetes app run `dotnet new k8sapp -n myAppName`
