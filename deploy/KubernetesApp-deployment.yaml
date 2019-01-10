@@ -2,7 +2,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: kubernetesapp-deployment
-  namespace: test 
+  namespace: default 
   labels:
     app: KubernetesApp 
 spec:
@@ -21,8 +21,8 @@ spec:
         app: KubernetesApp
     spec:
       containers:
-      - name: #container name 
-        image: #image 
+      - name: kubernetesapp 
+        image: kubernetesapp:latest # modify to correct image name and tag
         imagePullPolicy: IfNotPresent
         resources:
           limits:
@@ -49,3 +49,8 @@ spec:
             secretKeyRef:
               name: kubernetesapp-secret
               key: secret1 
+        - name: MY_ENV_3
+          valueFrom:
+            configMapKeyRef:
+              name: kubernetesapp-configmap
+              key: DATAKEY1

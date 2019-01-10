@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
   name: kubernetesapp-hpa
-  namespace: test
+  namespace: default 
   labels:
     app: KubernetesApp
 spec:

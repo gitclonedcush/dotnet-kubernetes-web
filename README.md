@@ -17,3 +17,16 @@ dotnet-kubernetes-web is a simple `dotnet new` template to automate the process 
 
 ## Usage
 * To create a new asp.net core with kubernetes app run `dotnet new k8sapp -n myAppName`
+
+## Docker
+The docker image will build without any changes to the repository. Most likely it will not need modification, even as you customize your
+asp.net core service.
+
+* To create a docker image run `cd src/myAppName/ && docker build -t myDockerImageName .`
+
+## Kubernetes
+Provided are kubernetes deployment template files. They require customization before they are ready to be deployed.
+
+* Modify the configmap and secret files to contain any env vars specific to your asp.net core service.
+* Modify the deployment file to point to your docker repository and image.
+* Modify resource requests and limits.

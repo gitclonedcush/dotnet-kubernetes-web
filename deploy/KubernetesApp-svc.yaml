@@ -4,7 +4,7 @@ metadata:
   annotations:
     prometheus.io/scrape: "true"
   name: kubernetesapp-svc
-  namespace: test
+  namespace: default 
   labels:
     app: KubernetesApp
 spec:
