@@ -30,3 +30,6 @@ Provided are kubernetes deployment template files. They require customization be
 * Modify the configmap and secret files to contain any env vars specific to your asp.net core service.
 * Modify the deployment file to point to your docker repository and image.
 * Modify resource requests and limits.
+
+
+## Add MVC Core
