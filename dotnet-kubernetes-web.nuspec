@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>AspNetCore.Kubernetes.Template</id>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <description>
       Creates a sample asp.net core app, with dockerfile, and sample kubernetes deployment files. 
     </description>
@@ -14,4 +14,7 @@
       <packageType name="Template" />
     </packageTypes>
   </metadata>
+  <files>
+    <file src="**" exclude="**\*.dll;.gitignore;.vscode/**;.git/**" />
+  </files>
 </package>
