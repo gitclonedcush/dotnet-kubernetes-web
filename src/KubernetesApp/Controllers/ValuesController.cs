@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KubernetesApp.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [ApiVersion("1.0")]
+    [Route("v{version:apiVersion}/[controller]")]
     public class ValuesController : ControllerBase
     {
         // GET api/values
