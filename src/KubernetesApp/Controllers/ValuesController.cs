@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace KubernetesApp.Controllers
 {
@@ -10,10 +11,20 @@ namespace KubernetesApp.Controllers
     [Route("v{version:apiVersion}/[controller]")]
     public class ValuesController : ControllerBase
     {
+        private readonly ILogger<ValuesController> _logger;
+
+        public ValuesController(ILogger<ValuesController> logger)
+        {
+            _logger = logger;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            // Log any warnings or errors. The following is an example of logging info.
+            _logger.LogInformation("GetValues endpoint called.");
+
             return new string[] { "value1", "value2" };
         }
 
