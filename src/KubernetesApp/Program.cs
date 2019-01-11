@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using App.Metrics;
 using App.Metrics.AspNetCore.Health;
 using App.Metrics.Formatters.Prometheus;
 using Microsoft.AspNetCore;
@@ -21,10 +22,18 @@ namespace KubernetesApp
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseMetricsEndpoints(options => 
-                    options.MetricsEndpointOutputFormatter = new MetricsPrometheusTextOutputFormatter())
+                .ConfigureMetricsWithDefaults(
+                    builder =>
+                    {
+                        builder.OutputMetrics.AsPrometheusPlainText();
+                    })
+                .UseMetricsEndpoints(
+                    options =>
+                    {
+                        options.MetricsEndpointOutputFormatter = new MetricsPrometheusTextOutputFormatter();
+                    })
                 .UseMetricsWebTracking()
-                .UseHealth();
+                .UseHealth()
+                .UseStartup<Startup>();
     }
 }

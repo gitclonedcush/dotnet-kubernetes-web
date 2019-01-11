@@ -25,9 +25,15 @@ namespace KubernetesApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHealth();
-            services.AddMetrics();
-            services.AddMvc();
+            services.AddCors(options => {
+                options.AddPolicy("CorsPolicy",(builder) => builder.AllowAnyOrigin()
+                                  .AllowAnyMethod()
+                                  .AllowAnyHeader());
+			});
+
+            services.AddApiVersioning();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.Configure<KubernetesApp.Config.Configuration>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +44,7 @@ namespace KubernetesApp
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("CorsPolicy");
             app.UseMvc();
         }
     }
