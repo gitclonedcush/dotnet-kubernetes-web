@@ -2,7 +2,7 @@ using KubernetesApp.Config;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
-namespace Autolocate
+namespace KubernetesApp.Controllers 
 {
     [ApiVersionNeutral]
     [Produces("application/json")]
